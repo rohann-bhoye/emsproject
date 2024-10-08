@@ -118,6 +118,7 @@ const App = () => {
               <p>Changes saved successfully!</p>
               <button className="close-button" onClick={closeConfirmation}>
                 OK
+                
               </button>
             </div>
           </div>
