@@ -72,5 +72,6 @@
 .date-picker-group {
   display: flex; 
   align-items: center; 
-  gap: 20px; 
+  gap: 33px; 
+  width: 35rem;
 }

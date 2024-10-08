@@ -1,8 +1,8 @@
 // src/pages/FinanceEditForm.jsx
 import React, { useState } from "react";
 import './FinanceEditForm.css'; // Import the CSS for form styling
-import AdminNavBar from "../../components/AdminNavbar";
-import AdminFooter from "../../components/AdminFooter";
+import EmployeeFooter from "../../components/EmployeeFooter";
+import EmployeeNavBar from "../../components/EmployeeNavBar";
 
 const FinanceEditForm = ({ financeDetails, onSave, onCancel }) => {
   const [formValues, setFormValues] = useState(financeDetails);
@@ -38,7 +38,7 @@ const FinanceEditForm = ({ financeDetails, onSave, onCancel }) => {
 
   return (
     <>
-    <AdminNavBar/>
+    <EmployeeNavBar/>
     <div className="finance-edit-form">
       <h3>Edit Finance Details</h3>
 
@@ -120,7 +120,7 @@ const FinanceEditForm = ({ financeDetails, onSave, onCancel }) => {
         </button>
       </div>
     </div>
-    <AdminFooter/>
+    <EmployeeFooter/>
             </>
   );
 };

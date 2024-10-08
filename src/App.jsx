@@ -9,6 +9,9 @@ import FinanceEditForm from "./pages/FinanceSection/FinanceEditForm"; // Import 
 import AdminFinanceView from "./pages/FinanceSection/AdminFinanceView"; // Import Admin Finance View
 
 import "./App.css"; // Import global CSS
+import ProjectDetailsForm from "./pages/ProjectDetails/ProjectForm";
+import EmployeeForm from "./pages/Employee/EditEmployee";
+import HelpSupport from "./pages/HelpSupport";
 
 const App = () => {
   // State to manage finance details for a single employee
@@ -37,6 +40,38 @@ const App = () => {
 
   const closeConfirmation = () => setShowConfirmation(false); // Close the popup
 
+  const employeesData = [
+  {
+    id: 1,
+    name: "John Doe",
+    department: "IT", // Added Department
+    finance: {
+      panCard: "ABCDE1234F",
+      aadharCard: "123456789012",
+      bankName: "Bank of Example",
+      branch: "Example Branch",
+      ifscCode: "EXAM1234567",
+      ctcBreakup: "₹60,000",
+    },
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    department: "HR", // Added Department
+    finance: {
+      panCard: "FGHIJ5678K",
+      aadharCard: "987654321012",
+      bankName: "Example Bank",
+      branch: "Main Branch",
+      ifscCode: "EXAM7654321",
+      ctcBreakup: "₹70,000",
+    },
+  },
+  // Add more employees as needed
+];
+
+
+
   return (
     <Router>
       <div>
@@ -45,6 +80,9 @@ const App = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admindashboard" element={<AdminDashboard />} />
+          <Route path="/project" element={<ProjectDetailsForm />} />
+          <Route path="/EmployeeForm" element={<EmployeeForm />} />
+          <Route path="/help" element={<HelpSupport />} />
 
           {/* Finance Routes */}
           <Route
@@ -68,7 +106,7 @@ const App = () => {
           {/* Admin Finance View Route */}
           <Route
             path="/admin-finance"
-            element={<AdminFinanceView financeDetails={financeDetails} />}
+            element={<AdminFinanceView employees={employeesData} financeDetails={financeDetails} />}
           />
         </Routes>
 

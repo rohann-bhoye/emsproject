@@ -1,14 +1,12 @@
-// src/pages/FinanceSection.jsx
+
 import React, { useState } from "react";
 import jsPDF from "jspdf"; // Import jsPDF for PDF generation
 import "jspdf-autotable"; // Import jsPDF Autotable for table generation
 import DatePicker from "react-datepicker"; // Import DatePicker
 import "react-datepicker/dist/react-datepicker.css"; // Import DatePicker CSS
 import "./FinanceSection.css";
-import AdminNavBar from "../../components/AdminNavbar";
-import Footer from "../../components/Footer";
-import AdminFooter from "../../components/AdminFooter";
-import NavBar from "../../components/NavBar";
+import EmployeeNavBar from "../../components/EmployeeNavBar";
+import EmployeeFooter from "../../components/EmployeeFooter";
 
 const FinanceSection = ({ financeDetails, onEditClick }) => {
   const [duration, setDuration] = useState(""); // No default duration selected
@@ -105,7 +103,7 @@ const FinanceSection = ({ financeDetails, onEditClick }) => {
 
   return (
     <>
-      <NavBar/>
+      <EmployeeNavBar/>
       <div className="finance-section">
         <h3 className="finance-title">Finance Details</h3>
         <div className="finance-details">
@@ -163,7 +161,7 @@ const FinanceSection = ({ financeDetails, onEditClick }) => {
           </button>
         </div>
       </div>
-      <AdminFooter />
+      <EmployeeFooter />
     </>
   );
 };

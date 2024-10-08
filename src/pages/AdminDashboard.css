@@ -16,7 +16,7 @@
     margin-bottom: 2rem;
   }
   .btn1{
-    width: 40%;
+    width: 25%;
   }
   .Deparepo{
     display: flex;
@@ -48,6 +48,7 @@
   }
   .btn2{
     margin-bottom: 1rem;
+    width: 25rem;
   }
   .btn3{
     width: 40rem;

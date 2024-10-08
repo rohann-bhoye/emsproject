@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // For navigation
 import './AdminDashboard.css'; // Custom CSS for styling
 import AdminNavBar from '../components/AdminNavbar';
-import Footer from '../components/Footer';
+
 import AdminFooter from '../components/AdminFooter';
 
 const AdminDashboard = () => {

@@ -1,41 +1,51 @@
-/* src/pages/AdminFinanceView.css */
+/* src/pages/FinanceSection/AdminFinanceView.css */
+
 .admin-finance-section {
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 1000px;
-  }
-  
-  .admin-finance-title {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .admin-finance-details {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-  }
-  
-  .finance-detail {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .edit-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .edit-button:hover {
-    background-color: #45a049;
-  }
-  
+  padding: 20px;
+  margin-bottom: 14.12rem;
+ 
+}
+
+.employee-list {
+  margin-bottom: 20px;
+}
+
+.employee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.view-details-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.view-details-button:hover {
+  background-color: #45a049;
+}
+
+.admin-finance-details {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.close-details-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close-details-button:hover {
+  background-color: #d32f2f;
+}

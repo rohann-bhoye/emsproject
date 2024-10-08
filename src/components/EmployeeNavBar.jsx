@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-import './AdminNavbar.css'; 
+import './EmployeeNavBar.css'; 
 
-const AdminNavBar = () => {
+const EmployeeNavBar = () => {
   const navigate = useNavigate(); // React Router's useNavigate hook for redirection
 
   const handleLogout = () => {
@@ -19,10 +19,12 @@ const AdminNavBar = () => {
       <div className="navContainer">
         <h2 className="logo">EMS</h2>
         <ul className="navLinks">
-          <li><Link to="/admindashboard" className="navItem">Home</Link></li>
-          <li><Link to="/manage-department" className="navItem">Manage Department</Link></li>
-          <li><Link to="/manage-employee" className="navItem">Manage Employees</Link></li>
-          <li><Link to="/admin-finance" className="navItem">Finance View</Link></li>
+          <li><Link to="/" className="navItem">Home</Link></li>
+          <li><Link to="/EmployeeForm" className="navItem">Personal Information</Link></li>
+          <li><Link to="/project" className="navItem">Project Details</Link></li>
+
+          <li><Link to="/finance" className="navItem">Salary & Payslips</Link></li>
+          <li><Link to="/help" className="navItem">Help & Support:</Link></li>
         </ul>
         <button className="logout-button" onClick={handleLogout}>
           Logout
@@ -32,4 +34,4 @@ const AdminNavBar = () => {
   );
 };
 
-export default AdminNavBar;
+export default EmployeeNavBar;

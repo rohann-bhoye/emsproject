@@ -1,7 +1,7 @@
 // src/components/Footer.js
 import React from 'react';
 
-const Footer = () => {
+const EmployeeFooter = () => {
   return (
     <footer style={styles.footer}>
       <p>&copy; 2024 Your Company. All rights reserved.</p>
@@ -21,11 +21,10 @@ const styles = {
     padding: '20px',
     textAlign: 'center',
     width: '100%',
-    position: 'fixed',  // Sticks to the bottom of the window
+    position: 'relative',  // Sticks to the bottom of the container
     bottom: '0',
     left: '0',
     boxSizing: 'border-box',  // Prevents any overflow
-    
   },
   socialLink: {
     color: '#3498db',
@@ -35,4 +34,4 @@ const styles = {
   }
 };
 
-export default Footer;
+export default EmployeeFooter;
