@@ -2,6 +2,7 @@
 import React from 'react';
 import './ConfirmationDialog.css'; // Import the CSS for styling
 
+
 const ConfirmationPopup = ({ message, onClose }) => {
   return (
     <div className="popup-overlay" onClick={onClose}>

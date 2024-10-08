@@ -7,6 +7,7 @@ import EmployeeNavBar from "../../components/EmployeeNavBar";
 const FinanceEditForm = ({ financeDetails, onSave, onCancel }) => {
   const [formValues, setFormValues] = useState(financeDetails);
   const [errors, setErrors] = useState({});
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

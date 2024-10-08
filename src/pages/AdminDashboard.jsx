@@ -5,6 +5,7 @@ import AdminNavBar from '../components/AdminNavbar';
 
 import AdminFooter from '../components/AdminFooter';
 
+
 const AdminDashboard = () => {
   const navigate = useNavigate();
 

@@ -4,6 +4,7 @@ import './AdminNavbar.css';
 
 const AdminNavBar = () => {
   const navigate = useNavigate(); // React Router's useNavigate hook for redirection
+  
 
   const handleLogout = () => {
     // Clear user data from localStorage or sessionStorage

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './LoginPage.css'
 import Footer from '../components/Footer';
+
 import NavBar from '../components/NavBar';
 
 const Login = () => {

@@ -5,6 +5,7 @@ import './EmployeeNavBar.css';
 const EmployeeNavBar = () => {
   const navigate = useNavigate(); // React Router's useNavigate hook for redirection
 
+  
   const handleLogout = () => {
     // Clear user data from localStorage or sessionStorage
     localStorage.removeItem('userRole');

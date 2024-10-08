@@ -6,6 +6,7 @@ import "./AdminFinanceView.css"; // Optional CSS for styling
 import AdminFooter from "../../components/AdminFooter";
 import EmployeeFooter from "../../components/EmployeeFooter";
 
+
 const AdminFinanceView = ({ employees }) => {
   const [selectedEmployee, setSelectedEmployee] = useState(null); // State to hold the selected employee's finance details
 

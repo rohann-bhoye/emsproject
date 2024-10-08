@@ -8,6 +8,7 @@ import "./FinanceSection.css";
 import EmployeeNavBar from "../../components/EmployeeNavBar";
 import EmployeeFooter from "../../components/EmployeeFooter";
 
+
 const FinanceSection = ({ financeDetails, onEditClick }) => {
   const [duration, setDuration] = useState(""); // No default duration selected
   const [startDate, setStartDate] = useState(null); // Start date

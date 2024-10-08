@@ -7,6 +7,7 @@ import EmployeeFooter from '../components/EmployeeFooter';
 const HelpSupport = () => {
   const [faqVisible, setFaqVisible] = useState(false);
   const [contactForm, setContactForm] = useState({
+    
     name: '',
     email: '',
     message: '',

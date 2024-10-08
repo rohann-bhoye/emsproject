@@ -6,6 +6,7 @@ const AdminFooter = () => {
     <footer style={styles.footer}>
       <p>&copy; 2024 Your Company. All rights reserved.</p>
       <p>
+        
         Follow us: 
         <a href="https://facebook.com" style={styles.socialLink}> Facebook</a> | 
         <a href="https://twitter.com" style={styles.socialLink}> Twitter</a>
