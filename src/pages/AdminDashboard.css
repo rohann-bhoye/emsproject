@@ -1,0 +1,125 @@
+.admin-dashboard {
+    padding: 30px;
+    margin-top: -4rem;
+  }
+  
+  .dashboard-statistics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  .Actionbutton{
+    display: flex;
+  }
+  .Title{
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+  }
+  .btn1{
+    width: 40%;
+  }
+  .Deparepo{
+    display: flex;
+    
+    justify-content: space-evenly;
+  }
+  .stat-card {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+    margin-right: 4rem;
+    margin-left: 4rem;
+  }
+  
+  .stat-card h3 {
+    margin-bottom: 10px;
+  }
+  
+  .stat-card p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .employee-management, .department-management, .reports-section {
+    margin-bottom: 30px;
+    
+  }
+  .btn2{
+    margin-bottom: 1rem;
+  }
+  .btn3{
+    width: 40rem;
+    margin-right: 4rem;
+    margin-left: 4rem;
+  }
+  
+  .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .employee-table th,
+  .employee-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .employee-table th {
+    background-color: #f0f0f0;
+  }
+  
+  .quick-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .quick-links button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .quick-links button:hover {
+    background-color: #0056b3;
+  }
+  
+  button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 34rem;
+    margin-right: 34rem;
+  }
+  
+  .btn4 {
+    margin: 0 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  
+  .page-number {
+    font-size: 18px;
+    margin: 0 20px;
+  }
+  
+  

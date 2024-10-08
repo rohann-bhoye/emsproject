@@ -1,0 +1,76 @@
+/* src/pages/FinanceSection.css */
+@import url('https://fonts.googleapis.com/css2?family=Basketball&display=swap');
+
+.finance-section {
+  background-color: #f9f9f9; 
+  border-radius: 10px; 
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px; 
+  margin: 20px auto; 
+  font-family: 'Basketball', sans-serif; 
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.finance-title {
+  text-align: center; 
+  color: #333; 
+  margin-bottom: 20px; 
+}
+
+.finance-details {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px; 
+  margin-bottom: 20px;
+}
+
+.finance-detail {
+  padding: 10px; 
+  border: 1px solid #e0e0e0; 
+  border-radius: 5px; 
+  background-color: #ffffff; 
+}
+
+.button-group {
+  display: flex;
+  justify-content: center; 
+  margin-top: 10px;
+}
+
+.edit-button,
+.download-payslip {
+  background-color: #4CAF50; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px; 
+  margin: 5px;
+  cursor: pointer; 
+  transition: background-color 0.3s ease;
+  font-weight: bold; 
+}
+
+.edit-button:hover,
+.download-payslip:hover {
+  background-color: #45a049; 
+}
+
+/* New Styles for Duration and Date Picker */
+.duration-selector,
+.date-picker-group {
+  margin: 20px 0; /* Margin for spacing */
+}
+
+.duration-selector label,
+.date-picker-group label {
+  font-weight: bold; /* Bold labels for better visibility */
+  margin-right: 10px; /* Spacing between label and input */
+}
+
+.date-picker-group {
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+}

@@ -1,0 +1,76 @@
+
+
+.login-container{
+    width: 400px; 
+    margin: 8.7rem auto;  
+    margin-top: 11rem;
+    padding: 2rem;  
+    border: 1px solid #ccc;  
+    border-radius: 10px;  
+    background-color: #f9f9f9;  
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+
+  }
+  .headername{
+    text-align: center;
+    font-size: 4rem;
+    
+  }
+  
+  /* Style headings */
+  h2 {
+    text-align: center;  
+    color: #333;  
+  }
+  
+  /* Style form elements */
+  form div {
+    margin-bottom: 1rem;  
+  }
+  
+  /* Label styling */
+  label {
+    display: block;  
+    margin-bottom: 0.5rem;  
+    font-weight: bold; 
+  }
+  
+  /* Input field styling */
+  input {
+    width: 100%; 
+    padding: 0.5rem;  
+    font-size: 1rem; 
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+    transition: border-color 0.3s;  
+  }
+  
+  /* Change border color on focus */
+  input:focus {
+    border-color: #007bff;  
+    outline: none; 
+  }
+  
+  /* Button styling */
+  button {
+    width: 100%; 
+    padding: 0.75rem; 
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer; 
+    transition: background-color 0.3s;  
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #0056b3; 
+  }
+  
+  /* Error message styling */
+  span {
+    color: red;  
+    font-size: 0.875rem;  
+  }
+  
