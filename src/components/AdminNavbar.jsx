@@ -21,8 +21,8 @@ const AdminNavBar = () => {
         <h2 className="logo">EMS</h2>
         <ul className="navLinks">
           <li><Link to="/admindashboard" className="navItem">Home</Link></li>
-          <li><Link to="/manage-department" className="navItem">Manage Department</Link></li>
-          <li><Link to="/manage-employee" className="navItem">Manage Employees</Link></li>
+          <li><Link to="/managedepartment" className="navItem">Manage Department</Link></li>
+          <li><Link to="/manageemployee" className="navItem">Manage Employees</Link></li>
           <li><Link to="/admin-finance" className="navItem">Finance View</Link></li>
         </ul>
         <button className="logout-button" onClick={handleLogout}>

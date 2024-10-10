@@ -13,6 +13,10 @@ import "./App.css"; // Import global CSS
 import ProjectDetailsForm from "./pages/ProjectDetails/ProjectForm";
 import EmployeeForm from "./pages/Employee/EditEmployee";
 import HelpSupport from "./pages/HelpSupport";
+import ManageEmployee from "./pages/Employee/EmployeeDashBoard";
+import EmployeeProfile from "./pages/Profile";
+import Profile from "./pages/Profile";
+import ManageDepartment from "./pages/ManageDepartment";
 
 const App = () => {
   // State to manage finance details for a single employee
@@ -84,6 +88,11 @@ const App = () => {
           <Route path="/project" element={<ProjectDetailsForm />} />
           <Route path="/EmployeeForm" element={<EmployeeForm />} />
           <Route path="/help" element={<HelpSupport />} />
+          
+          <Route path="/manageemployee" element={<ManageEmployee />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/managedepartment" element={<ManageDepartment />} />
+
 
           {/* Finance Routes */}
           <Route

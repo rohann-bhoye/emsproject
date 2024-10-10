@@ -20,7 +20,7 @@ const EmployeeNavBar = () => {
       <div className="navContainer">
         <h2 className="logo">EMS</h2>
         <ul className="navLinks">
-          <li><Link to="/" className="navItem">Home</Link></li>
+          <li><Link to="/profile" className="navItem">Home</Link></li>
           <li><Link to="/EmployeeForm" className="navItem">Personal Information</Link></li>
           <li><Link to="/project" className="navItem">Project Details</Link></li>
 

@@ -6,9 +6,10 @@ import "./AdminFinanceView.css"; // Optional CSS for styling
 import AdminFooter from "../../components/AdminFooter";
 import EmployeeFooter from "../../components/EmployeeFooter";
 
-
 const AdminFinanceView = ({ employees }) => {
   const [selectedEmployee, setSelectedEmployee] = useState(null); // State to hold the selected employee's finance details
+  const [searchTerm, setSearchTerm] = useState(""); // State for search input
+  const [filter, setFilter] = useState(""); // State for filter option
 
   // Function to handle viewing employee finance details
   const handleViewDetails = (employee) => {
@@ -20,12 +21,45 @@ const AdminFinanceView = ({ employees }) => {
     setSelectedEmployee(null);
   };
 
+  // Filter employees based on search term and filter option
+  const filteredEmployees = employees.filter(employee => {
+    const matchesSearch = 
+      employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      employee.id.toString().includes(searchTerm); // Search by ID as well
+    const matchesFilter = filter ? employee.department === filter : true;
+    return matchesSearch && matchesFilter;
+  });
+
   return (
     <>
       <AdminNavBar />
       <div className="admin-finance-section">
         <h3 className="admin-finance-title">All Employees Finance Details</h3>
-        
+
+        {/* Search and Filter Section */}
+        <div className="search-filter-section">
+          <input
+            type="text"
+            placeholder="Search by Name or ID"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="filter-select"
+          >
+            <option value="">All Departments</option>
+            {/* Add more department options as necessary */}
+            <option value="HR">HR</option>
+            <option value="Finance">Finance</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Sales">Sales</option>
+          </select>
+       
+        </div>
+
         {/* Employee List in Table Format */}
         <table className="employee-table">
           <thead>
@@ -37,7 +71,7 @@ const AdminFinanceView = ({ employees }) => {
             </tr>
           </thead>
           <tbody>
-            {employees.map((employee) => (
+            {filteredEmployees.map((employee) => (
               <tr key={employee.id}>
                 <td>{employee.name}</td>
                 <td>{employee.id}</td>

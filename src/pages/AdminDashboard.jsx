@@ -106,7 +106,7 @@ const AdminDashboard = () => {
                   <td>{employee.name}</td>
                   <td>{employee.department}</td>
                   <td className="Actionbutton">
-                    <button className="btn1" onClick={() => navigate(`/employee/edit/${employee.id}`)}>Edit</button>
+                    <button className="btn1" onClick={() => navigate(`/EmployeeForm/${employee.id}`)}>Edit</button>
                     <button className="btn1" onClick={() => navigate(`/employee/view/${employee.id}`)}>View</button>
                     <button className="btn1" onClick={() => alert(`Delete employee ${employee.name}?`)}>Delete</button>
                   </td>

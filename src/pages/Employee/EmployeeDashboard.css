@@ -1,0 +1,102 @@
+.employeedashboard {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: block;
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.filter-select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.employees-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.employees-table th, .employees-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.employees-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.editbtn {
+    display: flex;
+    height: 2.4rem;
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.addempbtn {
+    width: 20rem;
+    display: flex;
+    margin: auto;
+    height: 2.15rem;
+    margin-bottom: 1rem;
+}
+
+.addempbtn button:hover {
+    background-color: #6a6c6e; 
+    color: #fff;             
+    border-color: #007bff;    
+}
+
+.editbtn1 {
+    background-color: rgb(255, 0, 0);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 10px; 
+}
+
+.pagination span {
+    font-size: 16px;
+    margin: 0 15px; 
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+a:hover {
+    text-decoration: none; 
+}
