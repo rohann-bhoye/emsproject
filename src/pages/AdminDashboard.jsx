@@ -1,41 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // For navigation
+import { jsPDF } from 'jspdf'; // Import jsPDF
+import 'jspdf-autotable'; // Import jsPDF Autotable
 import './AdminDashboard.css'; // Custom CSS for styling
 import AdminNavBar from '../components/AdminNavbar';
-
 import AdminFooter from '../components/AdminFooter';
-
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
   // Dummy data for quick statistics
-  const totalEmployees = 250;
-  const totalDepartments = 5;
+  const totalEmployees = 250; // Assume you have a way to get this from your data
+  const totalDepartments = 5; // Assume you have a way to get this from your data
   const recentEmployees = [
-    // More employees can be added here for testing pagination
     { id: 1001, name: 'John Doe', department: 'Engineering' },
     { id: 1002, name: 'Jane Smith', department: 'HR' },
     { id: 1003, name: 'Mike Johnson', department: 'Finance' },
-    { id: 1004, name: 'Emily Davis', department: 'Marketing' },
-    { id: 1005, name: 'Paul Walker', department: 'Operations' },
-    { id: 1001, name: 'John Doe', department: 'Engineering' },
-    { id: 1002, name: 'Jane Smith', department: 'HR' },
-    { id: 1003, name: 'Mike Johnson', department: 'Finance' },
-    { id: 1004, name: 'Emily Davis', department: 'Marketing' },
-    { id: 1005, name: 'Paul Walker', department: 'Operations' },
-    { id: 1001, name: 'John Doe', department: 'Engineering' },
-    { id: 1002, name: 'Jane Smith', department: 'HR' },
-    { id: 1003, name: 'Mike Johnson', department: 'Finance' },
-    { id: 1004, name: 'Emily Davis', department: 'Marketing' },
-    { id: 1005, name: 'Paul Walker', department: 'Operations' },
-    { id: 1001, name: 'John Doe', department: 'Engineering' },
-    { id: 1002, name: 'Jane Smith', department: 'HR' },
-    { id: 10003, name: 'Mike Johnson', department: 'Finance' },
     { id: 1004, name: 'Emily Davis', department: 'Marketing' },
     { id: 1005, name: 'Paul Walker', department: 'Operations' },
   ];
-  
+
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
   const employeesPerPage = 5; // Set the number of employees per page
@@ -48,24 +32,37 @@ const AdminDashboard = () => {
   const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
   const currentEmployees = recentEmployees.slice(indexOfFirstEmployee, indexOfLastEmployee);
 
-  // Scroll to top when page changes
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   // Handle page change
   const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-      // scrollToTop();
-    }
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
   const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-      // scrollToTop();
-    }
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
+  // Function to generate PDF report
+  const generateReport = () => {
+    const doc = new jsPDF();
+
+    // Add Title
+    doc.setFontSize(20);
+    doc.text('Employee Report', 14, 22);
+
+    // Add Subtitle
+    doc.setFontSize(12);
+    doc.text(`Total Employees: ${totalEmployees}`, 14, 30);
+    doc.text(`Total Departments: ${totalDepartments}`, 14, 35);
+
+    // Add Table of Employees
+    doc.autoTable({
+      head: [['Employee ID', 'Name', 'Department']],
+      body: recentEmployees.map(emp => [emp.id, emp.name, emp.department]),
+      startY: 45,
+    });
+
+    // Save the PDF
+    doc.save('Employee_Report.pdf');
   };
 
   return (
@@ -115,14 +112,12 @@ const AdminDashboard = () => {
             </tbody>
           </table>
 
-          {/* Pagination Controls with Page Number in the Middle */}
+          {/* Pagination Controls */}
           <div className="pagination">
             <button className="btn4" onClick={handlePreviousPage} disabled={currentPage === 1}>
               ← Previous
             </button>
-            
-            <span className="page-number">{currentPage}</span> {/* Page Number Block */}
-
+            <span className="page-number">{currentPage}</span>
             <button className="btn4" onClick={handleNextPage} disabled={currentPage === totalPages}>
               Next →
             </button>
@@ -134,25 +129,25 @@ const AdminDashboard = () => {
           <div className="department-management">
             <h3>Departments</h3>
             <button className="btn2" onClick={() => navigate('/add-department')}>Add New Department</button>
-            <button className="btn2" onClick={() => navigate('/view-departments')}>View All Departments</button>
+           
           </div>
 
           {/* Reports Section */}
           <div className="reports-section">
             <h3>Generate Reports</h3>
-            <button className="btn2" onClick={() => navigate('/generate-reports')}>Generate Employee Reports</button>
-            <button className="btn2" onClick={() => navigate('/generate-department-reports')}>Generate Department Reports</button>
+            <button className="btn2" onClick={generateReport}>Generate Employee Reports</button>
+           
           </div>
         </div>
 
         {/* Quick Links */}
         <div className="quick-links">
-          <button className="btn3" onClick={() => navigate('/add-employee')}>Add New Employee</button>
-          <button className="btn3" onClick={() => navigate('/view-employees')}>View All Employees</button>
+          <button className="btn3" onClick={() => navigate('/addemployee')}>Add New Employee</button>
+          <button className="btn3" onClick={() => navigate('/manageemployee')}>View All Employees</button>
         </div>
       </div>
 
-      <AdminFooter/>
+      <AdminFooter />
     </>
   );
 };

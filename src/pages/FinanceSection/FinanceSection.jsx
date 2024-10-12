@@ -1,30 +1,49 @@
-
-import React, { useState } from "react";
-import jsPDF from "jspdf"; // Import jsPDF for PDF generation
-import "jspdf-autotable"; // Import jsPDF Autotable for table generation
-import DatePicker from "react-datepicker"; // Import DatePicker
-import "react-datepicker/dist/react-datepicker.css"; // Import DatePicker CSS
+import React, { useEffect, useState } from "react";
+import jsPDF from "jspdf"; 
+import "jspdf-autotable"; 
+import DatePicker from "react-datepicker"; 
+import "react-datepicker/dist/react-datepicker.css"; 
 import "./FinanceSection.css";
 import EmployeeNavBar from "../../components/EmployeeNavBar";
 import EmployeeFooter from "../../components/EmployeeFooter";
 
 
-const FinanceSection = ({ financeDetails, onEditClick }) => {
-  const [duration, setDuration] = useState(""); // No default duration selected
-  const [startDate, setStartDate] = useState(null); // Start date
-  const [endDate, setEndDate] = useState(null); // End date
+const FinanceSection = ({ onEditClick }) => {
+  const [financeDetails, setFinanceDetails] = useState(null); // State for finance details
+  const [duration, setDuration] = useState("");
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [loading, setLoading] = useState(true); // State to track loading
+  const [error, setError] = useState(null); // State to track errors
 
-  // Function to handle the download of the payslip in PDF format
+  useEffect(() => {
+    // Fetch finance details from your API
+    const fetchFinanceDetails = async () => {
+      try {
+        const response = await fetch('YOUR_API_URL'); // Replace with your API URL
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setFinanceDetails(data); // Set the fetched data
+      } catch (error) {
+        setError(error.message); // Set error message
+      } finally {
+        setLoading(false); // Set loading to false
+      }
+    };
+
+    fetchFinanceDetails();
+  }, []);
+
   const handleDownloadPayslip = () => {
     // Validate that either a duration or a date range is selected
     if (!duration && (!startDate || !endDate)) {
       alert("Please select either a duration or a date range.");
-      return; // Exit the function if validation fails
+      return;
     }
 
     const doc = new jsPDF();
-
-    // Title of the document
     doc.setFontSize(16);
     doc.text("Rohan Company", 20, 10);
     doc.setFontSize(12);
@@ -34,13 +53,14 @@ const FinanceSection = ({ financeDetails, onEditClick }) => {
     
     // Add Employee Information
     doc.text("Employee Payslip", 20, 35);
-    doc.text(`Name: ${financeDetails.employeeName}`, 20, 45);
-    doc.text(`Employee ID: ${financeDetails.employeeID}`, 20, 50);
-    doc.text(`Department: ${financeDetails.department}`, 20, 55);
-    doc.text(`Designation: ${financeDetails.designation}`, 20, 60);
-    doc.text(`Date of Joining: ${financeDetails.dateOfJoining}`, 20, 65);
-    
-    // Pay Period
+    if (financeDetails) {
+      doc.text(`Name: ${financeDetails.employeeName}`, 20, 45);
+      doc.text(`Employee ID: ${financeDetails.employeeID}`, 20, 50);
+      doc.text(`Department: ${financeDetails.department}`, 20, 55);
+      doc.text(`Designation: ${financeDetails.designation}`, 20, 60);
+      doc.text(`Date of Joining: ${financeDetails.dateOfJoining}`, 20, 65);
+    }
+
     let payPeriod;
     if (startDate && endDate) {
       payPeriod = `Pay Period: ${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`;
@@ -50,7 +70,6 @@ const FinanceSection = ({ financeDetails, onEditClick }) => {
     doc.text(payPeriod, 20, 75);
     doc.text("Pay Date: August 1, 2023", 20, 80);
 
-    // Earnings
     const earningsData = [
       ["Basic Salary", "₹40,000"],
       ["House Rent Allowance", "₹10,000"],
@@ -66,7 +85,6 @@ const FinanceSection = ({ financeDetails, onEditClick }) => {
       body: earningsData,
     });
 
-    // Deductions
     const deductionsData = [
       ["Provident Fund", "₹1,800"],
       ["Professional Tax", "₹500"],
@@ -80,31 +98,28 @@ const FinanceSection = ({ financeDetails, onEditClick }) => {
       body: deductionsData,
     });
 
-    // Net Salary
     doc.setFontSize(11);
     doc.text("Net Salary: ₹54,200 (Fifty-four thousand two hundred rupees only)", 20, doc.lastAutoTable.finalY + 10);
-
-    // Signature and Confidentiality Notice
     doc.text("Authorized Signature: P-17 EMS", 20, doc.lastAutoTable.finalY + 30);
     doc.text('Confidentiality Notice: "This payslip is confidential and intended solely for the recipient."', 20, doc.lastAutoTable.finalY + 40);
-
-    // Save the document as a PDF
+    
     doc.save("Payslip.pdf");
   };
 
-  // Function to handle duration change
   const handleDurationChange = (e) => {
     setDuration(e.target.value);
-    // Reset start and end dates if duration is selected
     if (e.target.value) {
       setStartDate(null);
       setEndDate(null);
     }
   };
 
+  if (loading) return <div>Loading...</div>; // Loading state
+  if (error) return <div>Error: {error}</div>; // Error state
+
   return (
     <>
-      <EmployeeNavBar/>
+      <EmployeeNavBar />
       <div className="finance-section">
         <h3 className="finance-title">Finance Details</h3>
         <div className="finance-details">
@@ -128,28 +143,26 @@ const FinanceSection = ({ financeDetails, onEditClick }) => {
           </div>
         </div>
 
-        {/* Duration Selector */}
         <div className="duration-selector">
           <label>Select Duration:</label>
           <select onChange={handleDurationChange} value={duration}>
-            <option value="">Select Option</option> {/* Added No Selection Option */}
+            <option value="">Select Option</option>
             <option value={6}>Last 6 Months</option>
             <option value={10}>Last 10 Months</option>
             <option value={12}>Last 12 Months</option>
           </select>
         </div>
 
-        {/* Date Range Pickers */}
         <div className="date-picker-group">
           <label>Select Start Date:</label>
           <DatePicker selected={startDate} onChange={date => {
             setStartDate(date);
-            setDuration(""); // Reset duration if start date is set
+            setDuration("");
           }} />
           <label>Select End Date:</label>
           <DatePicker selected={endDate} onChange={date => {
             setEndDate(date);
-            setDuration(""); // Reset duration if end date is set
+            setDuration("");
           }} />
         </div>
 

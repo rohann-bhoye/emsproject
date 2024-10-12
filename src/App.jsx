@@ -17,6 +17,9 @@ import ManageEmployee from "./pages/Employee/EmployeeDashBoard";
 import EmployeeProfile from "./pages/Profile";
 import Profile from "./pages/Profile";
 import ManageDepartment from "./pages/ManageDepartment";
+import RegisterEmployee from "./pages/RegisterEmployee";
+
+
 
 const App = () => {
   // State to manage finance details for a single employee
@@ -92,6 +95,7 @@ const App = () => {
           <Route path="/manageemployee" element={<ManageEmployee />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/managedepartment" element={<ManageDepartment />} />
+          <Route path="/addemployee" element={<RegisterEmployee />} />
 
 
           {/* Finance Routes */}

@@ -74,8 +74,8 @@ const ManageEmployee = () => {
             <h2>Manage Employees Section </h2>
 <div className='addempbtn'>
 
-<button className='addemp'><a href="/register"> Add Employee </a> </button>
-<button><a href="http://"> Add Department </a> </button>
+<button className='addemp'><a href="/addemployee"> Add Employee </a> </button>
+<button><a href="/managedepartment"> Add Department </a> </button>
             
 </div>
 
