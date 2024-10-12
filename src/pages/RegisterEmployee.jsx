@@ -15,6 +15,7 @@ const RegisterEmployee = () => {
     joiningDate: '',
     employeeID: '',
     password: '',
+    role: '', // Role field added
     panCard: '',              // PAN Card
     aadharCard: '',           // Aadhar Card
     bankAccountNumber: '',    // Bank Account Number
@@ -95,6 +96,7 @@ const RegisterEmployee = () => {
         joiningDate: '',
         employeeID: '',
         password: '',
+        role: '', // Reset role
         panCard: '',
         aadharCard: '',
         bankAccountNumber: '',
@@ -191,11 +193,29 @@ const RegisterEmployee = () => {
                 <option value="HR">HR</option>
                 <option value="Finance">Finance</option>
                 <option value="IT">IT</option>
-                <option value="Admin">Admin</option>
                 <option value="Operations">Operations</option>
                 {/* Add more departments as needed */}
               </Form.Control>
               {errors.department && <span className="error">{errors.department}</span>}
+            </Col>
+          </Form.Group>
+
+          {/* Role Dropdown */}
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm={2}>Role</Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                as="select"
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+              </Form.Control>
+              {errors.role && <span className="error">{errors.role}</span>}
             </Col>
           </Form.Group>
 
@@ -239,7 +259,6 @@ const RegisterEmployee = () => {
                 value={formData.panCard}
                 onChange={handleChange}
                 required
-                placeholder="ABCDE1234F"
               />
               {errors.panCard && <span className="error">{errors.panCard}</span>}
             </Col>
@@ -255,7 +274,6 @@ const RegisterEmployee = () => {
                 value={formData.aadharCard}
                 onChange={handleChange}
                 required
-                placeholder="12-digit Aadhar Number"
               />
               {errors.aadharCard && <span className="error">{errors.aadharCard}</span>}
             </Col>
@@ -286,7 +304,6 @@ const RegisterEmployee = () => {
                 value={formData.ifscCode}
                 onChange={handleChange}
                 required
-                placeholder="e.g., ABCD0123456"
               />
               {errors.ifscCode && <span className="error">{errors.ifscCode}</span>}
             </Col>
@@ -332,26 +349,13 @@ const RegisterEmployee = () => {
                 value={formData.ctcBreakup}
                 onChange={handleChange}
                 required
-                placeholder="CTC breakup details"
               />
               {errors.ctcBreakup && <span className="error">{errors.ctcBreakup}</span>}
             </Col>
           </Form.Group>
 
-          {/* Employee ID (Auto-generated) */}
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column sm={2}>Employee ID</Form.Label>
-            <Col sm={10}>
-              <Form.Control
-                type="text"
-                name="employeeID"
-                value={nextEmployeeID}
-                readOnly
-              />
-            </Col>
-          </Form.Group>
-
-          <Button type="submit">Register Employee</Button>
+          {/* Submit Button */}
+          <Button variant="primary" type="submit">Register Employee</Button>
         </Form>
       </div>
       <AdminFooter />
